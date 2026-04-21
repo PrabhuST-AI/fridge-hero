@@ -1,0 +1,228 @@
+:root {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #213547;
+  background-color: #f8f9fa;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary-gradient: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+  --purple-gradient: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --input-border: #e2e8f0;
+  --text-main: #2d3748;
+  --text-muted: #718096;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
+}
+
+#app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+header {
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  background: var(--purple-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.input-card {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.api-key-section {
+  margin-bottom: 2rem;
+}
+
+.ingredients-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+input {
+  border-radius: 12px;
+  border: 2px solid var(--input-border);
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background-color: #fdfdfd;
+}
+
+input:focus {
+  outline: none;
+  border-color: #8e2de2;
+  box-shadow: 0 0 0 4px rgba(142, 45, 226, 0.1);
+}
+
+.gradient-button {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  background: var(--purple-gradient);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(74, 0, 224, 0.3);
+}
+
+.gradient-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(74, 0, 224, 0.4);
+}
+
+.gradient-button:active {
+  transform: translateY(0);
+}
+
+.gradient-button:disabled {
+  background: #cbd5e0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+#result-container {
+  margin-top: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.recipe-card {
+  text-align: left;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Loading Spinner */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #8e2de2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#recipe-content h2 {
+  color: #4a00e0;
+  margin-top: 0;
+}
+
+#recipe-content ul, #recipe-content ol {
+  padding-left: 1.5rem;
+}
+
+#recipe-content li {
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  margin-top: 4rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f8f9fa;
+    background-color: #1a202c;
+    --text-main: #e2e8f0;
+    --text-muted: #a0aec0;
+    --input-border: #2d3748;
+  }
+  
+  body {
+    background: linear-gradient(180deg, #1a202c 0%, #171923 100%);
+  }
+  
+  .card {
+    background: #2d3748;
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  input {
+    background-color: #1a202c;
+    color: white;
+  }
+}

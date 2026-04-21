@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fridge Hero 🧑‍🍳</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Fridge Hero 🧑‍🍳</h1>
+        <p>Turn your leftovers into culinary masterpieces</p>
+      </header>
+      
+      <main>
+        <div class="card input-card">
+          <div class="api-key-section">
+            <input type="password" id="api-key" placeholder="Enter Groq API Key" />
+          </div>
+          
+          <div class="ingredients-section">
+            <div class="input-group">
+              <label for="ingredient1">Ingredient 1</label>
+              <input type="text" id="ingredient1" placeholder="e.g. Chicken" />
+            </div>
+            <div class="input-group">
+              <label for="ingredient2">Ingredient 2</label>
+              <input type="text" id="ingredient2" placeholder="e.g. Broccoli" />
+            </div>
+            <div class="input-group">
+              <label for="ingredient3">Ingredient 3</label>
+              <input type="text" id="ingredient3" placeholder="e.g. Soy Sauce" />
+            </div>
+          </div>
+          
+          <button id="cook-button" class="gradient-button">Cook Magic</button>
+        </div>
+
+        <div id="result-container" class="hidden">
+          <div class="card recipe-card">
+            <div id="loading" class="hidden">
+              <div class="spinner"></div>
+              <p>Whisking things up...</p>
+            </div>
+            <div id="recipe-content"></div>
+          </div>
+        </div>
+      </main>
+      
+      <footer>
+        <p>Powered by Groq AI</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
